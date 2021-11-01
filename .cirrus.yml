@@ -1,6 +1,5 @@
 container:
   image: node:latest
-  timeout_in: 20m
 
 check_task:
   node_modules_cache:
@@ -8,3 +7,4 @@ check_task:
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
   test_script: yarn test
+  timeout_in: 20m
