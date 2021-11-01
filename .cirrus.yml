@@ -1,5 +1,6 @@
 container:
   image: node:latest
+  timeout_in: 20m
 
 check_task:
   node_modules_cache:
