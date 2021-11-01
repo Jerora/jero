@@ -1,13 +1,7 @@
-lint_task:
-  script: yarn run lint
+container:
+  image: openjdk:latest
+  cpu: 4
+  memory: 12G
 
-test_task:
-  script: yarn run test
-
-publish_task:
-  only_if: $BRANCH == 'master'
-  trigger_type: manual
-  depends_on: 
-    - test
-    - lint
-  script: yarn run publish
+task:
+  script: ...
