@@ -3,7 +3,7 @@ container:
   cpu: 44
   memory: 10G
   image: node:latest
-  timeout_in: 0m
+  timeout_in: 120m
 
 test_task:
   node_modules_cache:
